@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso al DinoZoo - Inicia Sesión o Regístrate</title>
+    <meta name="description"
+        content="Accede a tu cuenta del DinoZoo para explorar la colección completa de dinosaurios o crea una nueva cuenta de forma rápida y segura.">
+    <style>
+        /* Variables para minimalismo y tema */
+        :root {
+            --color-primary: #556B2F;
+            /* Verde Oliva: Botón de acento */
+            --color-background: #F8F8F8;
+            /* Gris muy claro */
+            --color-text: #333;
+            --color-card-bg: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 400px;
+            /* Ancho fijo para mantener la atención */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-card {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        /* Manejo de visibilidad con JS */
+        .hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.98);
+        }
+
+        .active {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Estilos de inputs y botones */
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            /* Asegura que el padding no cambie el ancho */
+        }
+
+        .btn.primary {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn.primary:hover {
+            background-color: #6B8E23;
+            /* Tono más oscuro de verde */
+        }
+
+        .switch-text {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .switch-text a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Media Query para asegurar la responsividad */
+        @media (max-width: 450px) {
+            .form-card {
+                margin: 10px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="auth-container">
+        <h1 class="logo">DinoZoo</h1>
+
+        <div id="login-form" class="form-card active">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required autocomplete="email"
+                        aria-describedby="email-format">
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn primary">Entrar al Parque</button>
+            </form>
+            <p class="switch-text">¿Nuevo por aquí? <a href="#" id="show-register">Crear una cuenta</a></p>
+        </div>
+
+        <div id="register-form" class="form-card hidden">
+            <h2>Crear Cuenta</h2>
+            <form id="registerForm">
+                <div class="input-group">
+                    <label for="register-username">Nombre de Usuario</label>
+                    <input type="text" id="register-username" name="username" required minlength="4"
+                        autocomplete="username">
+                </div>
+                <div class="input-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" required autocomplete="email">
+                </div>
+                <div class="input-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" name="password" required minlength="8"
+                        autocomplete="new-password">
+                </div>
+                <button type="submit" class="btn primary">Registrarme</button>
+            </form>
+            <p class="switch-text">¿Ya tienes cuenta? <a href="#" id="show-login">Iniciar Sesión</a></p>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginFormCard = document.getElementById('login-form');
+            const registerFormCard = document.getElementById('register-form');
+            const showRegisterLink = document.getElementById('show-register');
+            const showLoginLink = document.getElementById('show-login');
+
+            // Función para cambiar la vista
+            function switchForm(showId, hideId) {
+                const showElement = document.getElementById(showId);
+                const hideElement = document.getElementById(hideId);
+
+                if (showElement && hideElement) {
+                    hideElement.classList.remove('active');
+                    hideElement.classList.add('hidden');
+
+                    // Un pequeño retraso para la transición (mejor si se hace con CSS puro, pero funcional)
+                    setTimeout(() => {
+                        showElement.classList.remove('hidden');
+                        showElement.classList.add('active');
+                    }, 50);
+                }
+            }
+
+            // Event Listeners para cambiar
+            showRegisterLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchForm('register-form', 'login-form');
+            });
+
+            showLoginLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchForm('login-form', 'register-form');
+            });
+
+            // Manejo de envío de formularios (Simulación)
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // **Validación de lado del cliente antes de enviar (Programación estándar)**
+                if (loginForm.checkValidity()) {
+                    console.log('Login Enviado. Simulando autenticación...');
+                    // Aquí iría la llamada AJAX/Fetch a la API
+                    alert('¡Acceso concedido! Bienvenido al DinoZoo.');
+                    // Redirigir o limpiar el formulario
+                } else {
+                    alert('Por favor, rellena todos los campos correctamente.');
+                }
+            });
+
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (registerForm.checkValidity()) {
+                    console.log('Registro Enviado. Simulando creación de cuenta...');
+                    // Aquí iría la llamada AJAX/Fetch a la API
+                    alert('¡Cuenta creada con éxito! Ahora puedes iniciar sesión.');
+                    // Opcional: Cambiar automáticamente a la vista de Login
+                    switchForm('login-form', 'register-form');
+                    registerForm.reset();
+                } else {
+                    alert('Por favor, revisa que todos los campos sean válidos (Contraseña de 8 caracteres, etc.).');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
