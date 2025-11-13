@@ -1,0 +1,75 @@
+/* styles.css */
+
+/* --- AJUSTE CLAVE PARA LA UNIFORMIDAD Y AMPLITUD DE LAS IMÁGENES --- */
+.card-img-top {
+    width: 100%;       
+    height: 280px;     /* ¡Ajustado a 280px! Esto hace la imagen más alta y uniforme. */
+    object-fit: cover; /* Crucial para que la imagen cubra el área sin distorsionarse */
+    object-position: center; 
+}
+
+
+/* --- Estilos Adicionales (Se mantienen igual) --- */
+
+/* Estilo para las tarjetas con efecto hover */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 0.75rem; 
+    overflow: hidden; 
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; 
+}
+
+/* Títulos y Footer */
+.card-title {
+    font-weight: bold;
+}
+
+.card-footer {
+    padding-top: 0.5rem;
+}
+
+/* styles.css */
+
+/* ---------------------------------------------------------------- */
+/* --- AJUSTE CLAVE: UNIFORMIDAD Y ALTURA DE LAS IMÁGENES (280px) --- */
+/* ---------------------------------------------------------------- */
+.card-img-top {
+    width: 100%;       
+    /* Aquí se define la altura uniforme y amplia para todas las imágenes */
+    height: 280px;     
+    object-fit: cover; /* Crucial: Recorta la imagen para que cubra todo el espacio sin distorsión */
+    object-position: center; /* Asegura que la parte central de la imagen sea visible */
+}
+
+
+/* ---------------------------------------------------------------- */
+/* --- Estilos Adicionales para Mejorar la Apariencia --- */
+/* ---------------------------------------------------------------- */
+
+/* Estilo para las tarjetas con efecto hover */
+.card {
+    /* Agrega una transición suave para el efecto hover */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 0.75rem; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que el borde redondeado aplique a la imagen */
+}
+
+.card:hover {
+    /* Efecto de "levantar" la tarjeta ligeramente */
+    transform: translateY(-5px); 
+    /* Aumenta la sombra al pasar el ratón */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; 
+}
+
+/* Títulos y Footer */
+.card-title {
+    font-weight: bold;
+}
+
+.card-footer {
+    padding-top: 0.5rem;
+}
