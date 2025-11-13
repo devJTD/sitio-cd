@@ -5,112 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | DinoZoo Park</title>
     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
     <style>
         :root {
             --dino-green: #28a745; 
             --dino-dark: #343a40;
-            --dino-light-bg: #f8f9fa;
+            --dino-secondary: #00796b; 
+            --dino-tertiary: #5d4037; 
             --dino-hover: #1e7e34;
-            --dino-secondary: #00796b; /* Un verde secundario para contraste */
-            --dino-tertiary: #5d4037; /* Marrón para el pie de página */
         }
-
-        /* Estilos Globales y de Contenedor */
+        
         body {
             font-family: 'Arial', sans-serif;
-            background-color: var(--dino-light-bg);
-            margin: 0;
-            padding-top: 60px;
+            background-color: var(--bs-body-bg); /* Usamos la variable de Bootstrap para el fondo */
+            padding-top: 56px; /* Ajuste para el navbar fijo de Bootstrap */
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .my-5 {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* Navbar y Responsividad (Mantenido) */
-        .navbar {
-            background-color: var(--dino-dark);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
+        /* Navbar: Sobreescribimos Bootstrap para mantener el color oscuro DinoZoo */
+        .navbar-dino {
+            background-color: var(--dino-dark) !important;
         }
 
         .navbar-brand {
             font-weight: bold;
-            color: var(--dino-green);
+            color: var(--dino-green) !important;
             font-size: 1.5rem;
-            text-decoration: none;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
+        .nav-link.text-white:hover {
+            color: var(--dino-green) !important; 
         }
 
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 10px;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--dino-green);
-        }
-
-        .navbar-toggler {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .navbar-toggler { display: block; }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: var(--dino-dark);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding-bottom: 10px;
-            }
-            .nav-links.active { display: flex; }
-            .nav-links li { margin: 5px 0; text-align: center; }
-            .nav-link { display: block; }
-            .hero-title { font-size: 2.5rem !important; }
-        }
-
-        /* Hero Section (Mantenido) */
+        /* Hero Section */
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1200/500?random=1');
             background-size: cover;
@@ -124,89 +52,31 @@
             justify-content: center;
         }
 
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-        }
-
+        /* Botón personalizado con color Dino */
         .btn-dino {
             background-color: var(--dino-green);
             border: 2px solid var(--dino-green);
             color: white;
             font-weight: bold;
-            padding: 10px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
             transition: background-color 0.3s, border-color 0.3s;
-            font-size: 1.1rem;
         }
 
         .btn-dino:hover {
             background-color: var(--dino-hover);
             border-color: var(--dino-hover);
+            color: white;
         }
 
-        /* Bloque de Características (Mantenido) */
-        .feature-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            text-align: center;
-        }
-
-        .feature-item {
-            flex: 0 0 32%;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
-        }
-
-        .feature-item h2 {
-            color: var(--dino-dark);
-            font-size: 1.5rem;
-            margin-top: 10px;
-        }
-        
-        @media (max-width: 992px) { .feature-item { flex: 0 0 48%; } }
-        @media (max-width: 576px) { .feature-item { flex: 0 0 100%; } }
-
-
-        /* --- NUEVAS SECCIONES --- */
-        
-        /* Contadores Destacados (Section Data) */
+        /* Sección de Datos/Contadores */
         .data-section {
             background-color: var(--dino-secondary);
             color: white;
-            padding: 50px 0;
-            text-align: center;
         }
-
-        .stats-grid {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            margin: 20px 10px;
-            flex-basis: 200px; /* Tamaño base para los ítems */
-        }
-
+        
         .stat-number {
             font-size: 3rem;
             font-weight: bold;
-            color: var(--dino-dark); /* Color oscuro para el número */
+            color: var(--dino-dark); 
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
         }
 
@@ -214,51 +84,19 @@
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 5px;
         }
-
+        
         /* Testimonios */
-        .testimonial-section {
-            background-color: white;
-            padding: 50px 0;
-        }
-        
         .testimonial-card {
-            background-color: var(--dino-light-bg);
             border-left: 5px solid var(--dino-green);
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            font-style: italic;
+            background-color: var(--bs-light);
         }
 
-        .testimonial-card cite {
-            display: block;
-            margin-top: 10px;
-            font-style: normal;
-            font-weight: bold;
-            color: var(--dino-dark);
-        }
-        
         /* Footer */
         footer {
             background-color: var(--dino-tertiary);
             color: white;
-            padding: 30px 0;
             font-size: 0.9rem;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .footer-column {
-            flex-basis: 30%;
-            margin-bottom: 20px;
         }
 
         .footer-column h4 {
@@ -266,149 +104,160 @@
             padding-bottom: 5px;
             margin-bottom: 10px;
         }
-
-        .footer-column a {
+        
+        .footer-link {
             color: white;
             text-decoration: none;
             display: block;
             margin-bottom: 5px;
         }
-        
-        .footer-column a:hover {
+
+        .footer-link:hover {
             color: var(--dino-green);
-        }
-        
-        @media (max-width: 768px) {
-            .footer-column {
-                flex-basis: 100%;
-                text-align: center;
-            }
-            .footer-content {
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a class="navbar-brand" href="index.html">🦖 DinoZoo Park</a>
-        
-        <button class="navbar-toggler" id="navbar-toggler">☰</button>
-        
-        <ul class="nav-links" id="navbarNav">
-            <li><a class="nav-link active" href="index.html">Inicio</a></li>
-            <li><a class="nav-link" href="galeria.html">Galería</a></li>
-            <li><a class="nav-link" href="servicio.html">Servicios</a></li>
-            <li><a class="nav-link" href="Nosotros.html">Nosotros</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-dino">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🦖 DinoZoo Park</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="galeria.html">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="nosotros.html">Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">¡La Aventura Jurásica Te Espera!</h1>
-            <p class="hero-subtitle">Experimenta un mundo donde el pasado y el presente chocan. Conoce a los gigantes que dominaron la Tierra.</p>
-            <a href="servicios.html" class="btn-dino">Explora Nuestros Servicios</a>
+    <header class="hero-section">
+        <div class="container hero-content">
+            <h1 class="hero-title display-4">¡La Aventura Jurásica Te Espera!</h1>
+            <p class="hero-subtitle lead">Experimenta un mundo donde el pasado y el presente chocan. Conoce a los gigantes que dominaron la Tierra.</p>
+            <a href="servicios.html" class="btn btn-lg btn-dino">Explora Nuestros Servicios</a>
         </div>
-    </div>
+    </header>
 
-    <div class="container my-5">
-        <h2 class="text-center" style="color: var(--dino-dark); margin-bottom: 30px;">Vive la Experiencia DinoZoo Park</h2>
-        <div class="feature-grid">
-            <div class="feature-item">
-                <h2>🦕 Exhibiciones Únicas</h2>
-                <p>Descubre réplicas y fósiles asombrosos en entornos naturales recreados.</p>
+    <section class="container my-5">
+        <h2 class="text-center mb-4" style="color: var(--dino-dark);">Vive la Experiencia DinoZoo Park</h2>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm p-4 h-100">
+                    <h2>🦕 Exhibiciones Únicas</h2>
+                    <p>Descubre réplicas y fósiles asombrosos en entornos naturales recreados.</p>
+                </div>
             </div>
-            <div class="feature-item">
-                <h2>🍽️ Zona de Exploradores</h2>
-                <p>Disfruta de áreas de descanso, comida temática y tiendas de souvenirs.</p>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm p-4 h-100">
+                    <h2>🍽️ Zona de Exploradores</h2>
+                    <p>Disfruta de áreas de descanso, comida temática y tiendas de souvenirs.</p>
+                </div>
             </div>
-            <div class="feature-item">
-                <h2>🌟 Experiencias VIP</h2>
-                <p>Únete a nuestros tours guiados exclusivos para ver el parque desde otra perspectiva.</p>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm p-4 h-100">
+                    <h2>🌟 Experiencias VIP</h2>
+                    <p>Únete a nuestros tours guiados exclusivos para ver el parque desde otra perspectiva.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     
-    <hr>
-
-    <div class="data-section">
-        <div class="container">
-            <h2 style="color: white; margin-bottom: 40px;">Datos Destacados del Parque</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
+    <section class="data-section py-5">
+        <div class="container text-center">
+            <h2 class="mb-5">Datos Destacados del Parque</h2>
+            <div class="row">
+                <div class="col-6 col-md-3 mb-4">
                     <div class="stat-number">25</div>
                     <div class="stat-label">Especies diferentes</div>
                 </div>
-                <div class="stat-item">
+                <div class="col-6 col-md-3 mb-4">
                     <div class="stat-number">1.2M+</div>
                     <div class="stat-label">Visitantes al año</div>
                 </div>
-                <div class="stat-item">
+                <div class="col-6 col-md-3 mb-4">
                     <div class="stat-number">4</div>
                     <div class="stat-label">Zonas temáticas</div>
                 </div>
-                <div class="stat-item">
+                <div class="col-6 col-md-3 mb-4">
                     <div class="stat-number">9.8/10</div>
                     <div class="stat-label">Satisfacción del cliente</div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <hr>
+    </section>
     
-    <div class="testimonial-section">
+    <section class="testimonial-section py-5 bg-white">
         <div class="container text-center">
-            <h2 style="color: var(--dino-dark); margin-bottom: 30px;">Lo que dicen nuestros visitantes</h2>
+            <h2 class="mb-4" style="color: var(--dino-dark);">Lo que dicen nuestros visitantes</h2>
             
-            <div class="testimonial-card">
-                <p>"¡Una experiencia increíble! Mi hijo sintió que estaba en la época jurásica. El T-Rex es espectacular."</p>
-                <cite>— Elena M., Madre y Exploradora</cite>
-            </div>
-
-            <div class="testimonial-card">
-                <p>"El parque está muy bien cuidado y las guías son excelentes. ¡Volveremos el próximo verano sin duda!"</p>
-                <cite>— Javier S., Aficionado a la Paleontología</cite>
-            </div>
-        </div>
-    </div>
-    
-    <hr>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-column">
-                <h4>Contacto</h4>
-                <p>📍 Av. Jurásica, Sector 404</p>
-                <p>📞 +1 (555) DinoZoo</p>
-                <p>📧 info@dinozooppark.com</p>
-            </div>
-            <div class="footer-column">
-                <h4>Enlaces Rápidos</h4>
-                <a href="galeria.html">Galería de Especies</a>
-                <a href="servicios.html">Horarios y Precios</a>
-                <a href="nosotros.html">Nuestra Historia</a>
-                <a href="#">Preguntas Frecuentes</a>
-            </div>
-            <div class="footer-column">
-                <h4>Redes Sociales</h4>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="testimonial-card p-4 my-3 mx-auto shadow-sm">
+                        <p class="mb-2">"¡Una experiencia increíble! Mi hijo sintió que estaba en la época jurásica. El T-Rex es espectacular."</p>
+                        <cite class="d-block mt-3">— Elena M., Madre y Exploradora</cite>
+                    </div>
+                    <div class="testimonial-card p-4 my-3 mx-auto shadow-sm">
+                        <p class="mb-2">"El parque está muy bien cuidado y las guías son excelentes. ¡Volveremos el próximo verano sin duda!"</p>
+                        <cite class="d-block mt-3">— Javier S., Aficionado a la Paleontología</cite>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="text-center" style="padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            &copy; 2025 DinoZoo Park. Todos los derechos reservados.
+    </section>
+
+    <footer class="py-4 mt-0" style="background-color: var(--dino-tertiary);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="footer-column">
+                        <h4>Contacto</h4>
+                        <p class="mb-1">📍 Av. Jurásica, Sector 404</p>
+                        <p class="mb-1">📞 +1 (555) DinoZoo</p>
+                        <p class="mb-1">📧 info@dinozooppark.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="footer-column">
+                        <h4>Enlaces Rápidos</h4>
+                        <a href="galeria.html" class="footer-link">Galería de Especies</a>
+                        <a href="servicio.html" class="footer-link">Horarios y Precios</a>
+                        <a href="nosotros.html" class="footer-link">Nuestra Historia</a>
+                        <a href="#" class="footer-link">Preguntas Frecuentes</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="footer-column">
+                        <h4>Redes Sociales</h4>
+                        <a href="#" class="footer-link">Facebook</a>
+                        <a href="#" class="footer-link">Instagram</a>
+                        <a href="#" class="footer-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-3" style="border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                &copy; 2025 DinoZoo Park. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
 
-    <script>
-        document.getElementById('navbar-toggler').addEventListener('click', function() {
-            var navLinks = document.getElementById('navbarNav');
-            navLinks.classList.toggle('active');
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 </html>
