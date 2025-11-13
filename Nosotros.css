@@ -1,26 +1,32 @@
 :root {
   --color-jungle-dark: #1A361A;
+
   /* Más oscuro para contraste */
   --color-earth-dark: #5A2E0C;
+
   /* Más oscuro */
   --color-gold-tech: #FFD700;
+
   /* Oro con toque tech */
   --color-smoke: rgb(0 0 0 / 90%);
-  /* Más opaco - CORREGIDO: rgb con porcentaje */
+
+  /* Más opaco */
   --color-tech-neon: #00FFC0;
+
   /* Neón brillante (verde cian) */
   --color-danger-alert: #E74C3C;
+
   /* Rojo de alerta moderno */
   --color-text-light: #E0E0E0;
   --color-text-dark: #A0A0A0;
 }
 
 body {
-  /* CORREGIDO: Comillas removidas */
   font-family: Tinos, serif;
   color: var(--color-text-light);
   margin: 0;
   padding-top: 80px;
+
   /* Más espacio para el Navbar rediseñado */
   background-color: var(--color-smoke);
   overflow-x: hidden;
@@ -35,21 +41,22 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+
   /* Fondo degradado de centro de control oscuro */
-  /* CORREGIDO: rgb con porcentaje */
   background: linear-gradient(90deg, rgb(0 0 0 / 80%) 0%, var(--color-jungle-dark) 50%, rgb(0 0 0 / 80%) 100%);
   padding: 15px 0;
   z-index: 50;
+
   /* Borde neón simulando un HUD */
   border-bottom: 3px solid var(--color-tech-neon);
-  /* CORREGIDO: Sin línea vacía antes del comentario */
   box-shadow: 0 0 20px var(--color-tech-neon);
+
   /* Sombra neón */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* CORREGIDO: Comillas removidas */
   font-family: Orbitron, sans-serif;
+
   /* Fuente tech */
 }
 
@@ -60,15 +67,15 @@ body {
   margin: 0 25px;
   padding: 8px 15px;
   transition: all 0.3s ease;
-  /* CORREGIDO: rgb con porcentaje */
   border: 1px solid rgb(0 255 192 / 20%);
   text-shadow: 0 0 5px rgb(0 255 192 / 50%);
 }
 
+/* Selector más específico que navbar-links a */
 .navbar-links a:hover {
-  /* CORREGIDO: rgb con porcentaje */
   background-color: rgb(0 255 192 / 15%);
   color: var(--color-gold-tech);
+
   /* Efecto de pulso neón */
   border-color: var(--color-gold-tech);
   box-shadow: 0 0 15px var(--color-gold-tech);
@@ -109,7 +116,6 @@ header {
 h1 {
   font-size: 5em;
   color: var(--color-gold-tech);
-  /* CORREGIDO: rgb con porcentaje */
   text-shadow: 0 0 10px rgb(255 215 0 / 70%), 0 0 5px var(--color-earth-dark);
   animation: glitch 1.5s infinite;
   letter-spacing: 5px;
@@ -118,37 +124,31 @@ h1 {
 
 @keyframes glitch {
   0% {
-    /* CORREGIDO: rgb con porcentaje */
     text-shadow: 0 0 10px rgb(255 215 0 / 70%);
     transform: translate(0);
   }
 
   20% {
-    /* CORREGIDO: rgb con porcentaje */
     text-shadow: 5px 0 10px rgb(255 0 0 / 70%);
     transform: translate(-3px, 0);
   }
 
   40% {
-    /* CORREGIDO: rgb con porcentaje */
     text-shadow: -5px 0 10px rgb(0 0 255 / 70%);
     transform: translate(3px, 0);
   }
 
   60% {
-    /* CORREGIDO: rgb con porcentaje */
     text-shadow: 0 0 10px rgb(255 215 0 / 70%);
     transform: translate(0);
   }
 
   80% {
-    /* CORREGIDO: rgb con porcentaje */
     text-shadow: 5px 0 10px rgb(255 0 0 / 70%);
     transform: translate(-1px, 0);
   }
 
   100% {
-    /* CORREGIDO: rgb con porcentaje */
     text-shadow: 0 0 10px rgb(255 215 0 / 70%);
     transform: translate(0);
   }
@@ -161,12 +161,10 @@ h1 {
 }
 
 section {
-  /* CORREGIDO: rgb con porcentaje */
   background-color: rgb(45 88 45 / 10%);
   padding: 40px;
   margin-bottom: 30px;
   border-radius: 15px;
-  /* CORREGIDO: rgb con porcentaje */
   box-shadow: 0 0 20px rgb(0 0 0 / 50%);
   border: 1px solid var(--color-jungle-dark);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -175,7 +173,6 @@ section {
 
 section:hover {
   transform: scale(1.02) rotateX(2deg);
-  /* CORREGIDO: rgb con porcentaje */
   box-shadow: 0 10px 30px rgb(255 215 0 / 30%);
 }
 
@@ -185,13 +182,11 @@ h2 {
   padding-bottom: 10px;
   margin-bottom: 20px;
   font-size: 2.5em;
-  /* CORREGIDO: Comillas removidas */
   font-family: Orbitron, sans-serif;
 }
 
 /* Efecto de Venta y Instalaciones (Ajustados a nuevas variables) */
 .service-card {
-  /* CORREGIDO: rgb con porcentaje */
   background-color: rgb(139 69 19 / 30%);
   border: 2px solid var(--color-earth-dark);
   padding: 20px;
@@ -200,13 +195,12 @@ h2 {
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
+/* Selector más específico que service-card */
 .service-card:hover {
   transform: translateY(-10px) rotateZ(-1deg);
-  /* CORREGIDO: rgb con porcentaje */
   background-color: rgb(139 69 19 / 50%);
 }
 
-/* DUPLICADOS Y ORDEN CORREGIDO (Los selectores más específicos deben ir después de los menos específicos, o se consolidan) */
 .service-card h3 {
   color: var(--color-gold-tech);
   font-size: 1.8em;
@@ -220,7 +214,6 @@ h2 {
 }
 
 .facility-card {
-  /* CORREGIDO: rgb con porcentaje */
   background-color: rgb(0 0 0 / 60%);
   padding: 25px;
   border-radius: 10px;
@@ -228,6 +221,7 @@ h2 {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Selector más específico que facility-card */
 .facility-card:hover {
   box-shadow: 0 0 25px var(--color-tech-neon);
   transform: scale(1.05);
@@ -236,10 +230,8 @@ h2 {
 .facility-card h3 {
   color: var(--color-tech-neon);
   font-size: 1.5em;
-  /* CORREGIDO: rgb con porcentaje */
   text-shadow: 0 0 8px rgb(0 255 255 / 70%);
   margin-top: 0;
-  /* CORREGIDO: Comillas removidas */
   font-family: Orbitron, sans-serif;
 }
 
@@ -258,15 +250,15 @@ footer {
   text-align: center;
   padding: 40px 0;
   margin-top: 60px;
+
   /* Borde superior de alerta/datos */
   border-top: 5px solid var(--color-danger-alert);
-  /* CORREGIDO: rgb con porcentaje */
   box-shadow: 0 -5px 30px rgb(0 0 0 / 90%);
   position: relative;
   overflow: hidden;
   z-index: 10;
-  /* CORREGIDO: Comillas removidas */
   font-family: Orbitron, sans-serif;
+
   /* Tech */
 }
 
@@ -278,6 +270,7 @@ footer::before {
   left: 0;
   width: 100%;
   height: 100%;
+
   /* CORREGIDO: rgb con porcentaje */
   background-image: linear-gradient(0deg, transparent 90%, rgb(255 255 255 / 5%) 90%),
     linear-gradient(90deg, transparent 90%, rgb(255 255 255 / 5%) 90%);
@@ -306,16 +299,7 @@ footer p {
   margin-top: 20px;
 }
 
-/* Selectores reordenados para cumplir no-descending-specificity */
-.navbar-links a:hover {
-  /* DUPLICADO Y ORDEN: Se mantiene aquí el hover del navbar */
-  background-color: rgb(0 255 192 / 15%);
-  color: var(--color-gold-tech);
-  border-color: var(--color-gold-tech);
-  box-shadow: 0 0 15px var(--color-gold-tech);
-  transform: scale(1.05);
-}
-
+/* Selectores genéricos del footer antes que los específicos */
 .footer-links a {
   color: var(--color-text-light);
   text-decoration: none;
@@ -327,9 +311,11 @@ footer p {
   z-index: 2;
 }
 
+/* Selector más específico que footer-links a */
 .footer-links a:hover {
   color: var(--color-danger-alert);
   border-bottom: 2px solid var(--color-danger-alert);
+
   /* Pequeño pulso de terminal */
   text-shadow: 0 0 10px var(--color-danger-alert);
 }
@@ -341,15 +327,15 @@ footer p {
   left: 0;
   width: 100%;
   height: 15px;
+
   /* Más ancho */
   background-color: var(--color-danger-alert);
-  /* CORREGIDO: Nombre de keyframes a kebab-case */
   animation: danger-flash 2s infinite alternate;
+
   /* Más rápido y urgente */
   z-index: 3;
 }
 
-/* CORREGIDO: Nombre de keyframes a kebab-case */
 @keyframes danger-flash {
   0% {
     background-color: var(--color-danger-alert);
@@ -357,10 +343,8 @@ footer p {
   }
 
   50% {
-    /* CORREGIDO: Hexadecimal de 6 a 3 dígitos */
     background-color: #F00;
     opacity: 1;
-    /* CORREGIDO: Hexadecimal de 6 a 3 dígitos */
     box-shadow: 0 0 10px #F00;
   }
 
@@ -372,7 +356,6 @@ footer p {
 
 .copyright {
   margin-top: 20px;
-  /* CORREGIDO: Hexadecimal de 6 a 3 dígitos */
   color: #404040;
   position: relative;
   z-index: 2;
@@ -389,7 +372,6 @@ footer p {
 /* -------------------------- */
 /* ANIMACIONES DE DINOSAURIOS Y FONDO (Mantenidos) */
 /* -------------------------- */
-/* CORREGIDO: Sin línea vacía antes del comentario */
 .dino-track {
   position: absolute;
   width: 100%;
@@ -404,7 +386,6 @@ footer p {
   position: absolute;
   width: 150px;
   height: auto;
-  /* CORREGIDO: Valor de palabra clave a minúsculas */
   image-rendering: optimizespeed;
 }
 
@@ -412,12 +393,10 @@ footer p {
   top: 60%;
   left: -200px;
   width: 250px;
-  /* CORREGIDO: Nombre de keyframes a kebab-case */
   animation: move-trex 30s linear infinite;
   transform: scaleX(1);
 }
 
-/* CORREGIDO: Nombre de keyframes a kebab-case */
 @keyframes move-trex {
   0% {
     left: -200px;
@@ -444,11 +423,9 @@ footer p {
   right: 50px;
   width: 120px;
   transform-style: preserve-3d;
-  /* CORREGIDO: Nombre de keyframes a kebab-case */
   animation: stalk-raptor 10s ease-in-out infinite alternate;
 }
 
-/* CORREGIDO: Nombre de keyframes a kebab-case */
 @keyframes stalk-raptor {
   0% {
     transform: translateZ(0) rotateY(0deg);
@@ -463,11 +440,9 @@ footer p {
   top: 5%;
   right: 10%;
   width: 180px;
-  /* CORREGIDO: Nombre de keyframes a kebab-case */
   animation: fly-ptero 20s linear infinite;
 }
 
-/* CORREGIDO: Nombre de keyframes a kebab-case */
 @keyframes fly-ptero {
   0% {
     transform: translateY(0) rotateZ(0deg);
@@ -496,18 +471,16 @@ footer p {
   left: 0;
   width: 100%;
   height: 100%;
+
   /* Necesitarás una imagen de fondo en /img/jungle_texture.avif */
   background: url('/img/jungle_texture.avif') repeat;
   background-size: cover;
   opacity: 0.1;
   z-index: 1;
-  /* CORREGIDO: Nombre de keyframes a kebab-case */
   animation: jungle-pulse 60s linear infinite;
-  /* CORREGIDO: Unidad removida de longitud cero */
   transform: translateZ(-500px) scale(2);
 }
 
-/* CORREGIDO: Nombre de keyframes a kebab-case */
 @keyframes jungle-pulse {
   0% {
     background-position: 0 0;
@@ -552,18 +525,4 @@ footer p {
   100% {
     transform: translate(1px, -1px) rotate(-1deg);
   }
-}
-
-/* Selectores consolidados y reordenados al final para cumplir no-descending-specificity */
-
-.footer-links a {
-  /* DUPLICADO: Definido arriba y es más genérico, se mueve a una posición correcta */
-  color: var(--color-text-light);
-  text-decoration: none;
-  margin: 0 20px;
-  padding: 5px 10px;
-  transition: all 0.3s ease;
-  border-bottom: 2px solid transparent;
-  position: relative;
-  z-index: 2;
 }
