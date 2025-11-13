@@ -1,21 +1,22 @@
-# .github/workflows/ci-cd.yml
-name: CI/CD Pipeline
- 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
- 
+# .github/workflows/ci-cd.yml 
+ 
+name: CI/CD Pipeline 
+ 
+on: 
+  push: 
+    branches: [ main ] 
+  pull_request: 
+    branches: [ main ] 
+
 permissions:
   contents: read
   pages: write # Necesario para desplegar en GitHub Pages
   id-token: write
- 
+
 concurrency:
   group: "pages"
   cancel-in-progress: true
- 
+
 jobs:
   ci:
     name: Pruebas y validación
@@ -23,22 +24,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
- 
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
- 
+
       - name: Instalar HTMLHint
         run: npm install -g htmlhint
-        
+
       # Solución 1: Corregida la indentación de este paso.
       - name: Validar HTML
         run: |
           echo " Ejecutando HTMLHint..."
           htmlhint index.html --rules "tag-pair,attr-value-double-quotes,id-unique,doctype-first"
           echo " HTML válido"
- 
+ 
       - name: Instalar y ejecutar Lighthouse CI (accesibilidad + mejoras)
         run: |
           npm install -g @lhci/cli@0.15.x
@@ -50,7 +51,7 @@ jobs:
             --assert.assertions.accessibility=warn \
             --assert.assertions.performance=warn \
             --assert.assertions['best-practices']=warn
- 
+ 
   cd:
     name: Despliegue a GitHub Pages
     needs: ci
@@ -59,19 +60,20 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
- 
+ 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
- 
+ 
       - name: Setup Pages
         uses: actions/configure-pages@v5
- 
+ 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.' # Carpeta raíz (index.html, etc.)
- 
+ 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
