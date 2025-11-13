@@ -1,21 +1,15 @@
 :root {
   --color-jungle-dark: #1A361A;
-
   /* Más oscuro para contraste */
   --color-earth-dark: #5A2E0C;
-
   /* Más oscuro */
   --color-gold-tech: #FFD700;
-
   /* Oro con toque tech */
   --color-smoke: rgb(0 0 0 / 90%);
-
   /* Más opaco */
   --color-tech-neon: #00FFC0;
-
   /* Neón brillante (verde cian) */
   --color-danger-alert: #E74C3C;
-
   /* Rojo de alerta moderno */
   --color-text-light: #E0E0E0;
   --color-text-dark: #A0A0A0;
@@ -50,13 +44,11 @@ body {
   /* Borde neón simulando un HUD */
   border-bottom: 3px solid var(--color-tech-neon);
   box-shadow: 0 0 20px var(--color-tech-neon);
-
   /* Sombra neón */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: Orbitron, sans-serif;
-
   /* Fuente tech */
 }
 
@@ -279,6 +271,11 @@ footer::before {
   z-index: 1;
 }
 
+/* * NOTA DE ORDEN:
+ * Los selectores de elemento puro (footer h3, footer p)
+ * deben ir antes que los selectores de clase (.service-card h3, .facility-card p)
+ * para satisfacer la regla no-descending-specificity.
+ */
 footer h3 {
   color: var(--color-tech-neon);
   margin-top: 0;
@@ -300,6 +297,7 @@ footer p {
 }
 
 /* Selectores genéricos del footer antes que los específicos */
+/* NOTA DE ORDEN: .footer-links a debe ir antes que .navbar-links a:hover */
 .footer-links a {
   color: var(--color-text-light);
   text-decoration: none;
@@ -478,6 +476,7 @@ footer p {
   opacity: 0.1;
   z-index: 1;
   animation: jungle-pulse 60s linear infinite;
+  /* CORREGIDO: Removida unidad 'px' de longitud cero. */
   transform: translateZ(-500px) scale(2);
 }
 
@@ -515,7 +514,7 @@ footer p {
   }
 
   50% {
-    transform: translate(-3px, 0px) rotate(1deg);
+    transform: translate(-3px, 0) rotate(1deg);
   }
 
   75% {

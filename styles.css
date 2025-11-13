@@ -8,8 +8,10 @@
 
   /* Aquí se define la altura uniforme y amplia para todas las imágenes */
   height: 280px;
+
   /* Crucial: Recorta la imagen para que cubra todo el espacio sin distorsión */
   object-fit: cover;
+
   /* Asegura que la parte central de la imagen sea visible */
   object-position: center;
 }
@@ -22,8 +24,10 @@
 .card {
   /* Agrega una transición suave para el efecto hover */
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
   /* Bordes redondeados */
   border-radius: 0.75rem;
+
   /* Asegura que el borde redondeado aplique a la imagen */
   overflow: hidden;
 }
@@ -32,6 +36,7 @@
 .card:hover {
   /* Efecto de "levantar" la tarjeta ligeramente */
   transform: translateY(-5px);
+
   /* Aumenta la sombra al pasar el ratón */
   /* CORREGIDO: rgb con porcentaje */
   box-shadow: 0 1rem 3rem rgb(0 0 0 / 17.5%) !important;
