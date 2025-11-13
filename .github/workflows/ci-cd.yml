@@ -44,13 +44,7 @@ jobs:
         run: |
           npm install -g @lhci/cli@0.15.x
           echo "Auditar con Lighthouse CI (modo 'perf', 'accessibility', 'best-practices')..."
-          lhci autorun \
-            --upload.target=temporary-public-storage \
-            --collect.staticDistDir=. \
-            --collect.url=index.html \ # Solución 2: Se quitó la barra diagonal inicial para usar la ruta relativa al staticDistDir.
-            --assert.assertions.accessibility=warn \
-            --assert.assertions.performance=warn \
-            --assert.assertions['best-practices']=warn
+          lhci autorun --upload.target=temporary-public-storage --collect.staticDistDir=. --collect.url=index.html --assert.assertions.accessibility=warn --assert.assertions.performance=warn --assert.assertions['best-practices']=warn
  
   cd:
     name: Despliegue a GitHub Pages
