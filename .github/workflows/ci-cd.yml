@@ -1,22 +1,21 @@
-# .github/workflows/ci-cd.yml 
+# .github/workflows/ci-cd.yml
+name: CI/CD Pipeline
  
-name: CI/CD Pipeline 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
  
-on: 
-  push: 
-    branches: [ main ] 
-  pull_request: 
-    branches: [ main ] 
-
 permissions:
   contents: read
   pages: write # Necesario para desplegar en GitHub Pages
   id-token: write
-
+ 
 concurrency:
   group: "pages"
   cancel-in-progress: true
-
+ 
 jobs:
   ci:
     name: Pruebas y validación
@@ -24,22 +23,40 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+ 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # --- LINTING HTML ---
       - name: Instalar HTMLHint
         run: npm install -g htmlhint
-
-      # Solución 1: Corregida la indentación de este paso.
+        
       - name: Validar HTML
         run: |
           echo " Ejecutando HTMLHint..."
           htmlhint index.html --rules "tag-pair,attr-value-double-quotes,id-unique,doctype-first"
           echo " HTML válido"
+      
+      # --- LINTING CSS (NUEVOS PASOS) ---
+      - name: Instalar Stylelint y Configuración
+        # Instalamos Stylelint, una configuración estándar y un paquete para integrarlo
+        run: |
+          npm install -g stylelint stylelint-config-standard
+          # Creamos un archivo de configuración básico para Stylelint
+          echo '{"extends": ["stylelint-config-standard"]}' > .stylelintrc.json
+
+      - name: Validar CSS con Stylelint
+        # Esto buscará todos los archivos .css en el repositorio.
+        # Si no encuentra archivos o hay un error de sintaxis, fallará el job.
+        run: |
+          echo " Ejecutando Stylelint..."
+          stylelint "**/*.css"
+          echo " CSS válido"
+      # ----------------------------------
  
+      # Corregido el espaciado de lhci en la línea anterior, está en una sola línea ahora.
       - name: Instalar y ejecutar Lighthouse CI (accesibilidad + mejoras)
         run: |
           npm install -g @lhci/cli@0.15.x
