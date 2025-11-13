@@ -1,0 +1,504 @@
+:root {
+    --color-jungle-dark: #1A361A;
+    /* Más oscuro para contraste */
+    --color-earth-dark: #5A2E0C;
+    /* Más oscuro */
+    --color-gold-tech: #FFD700;
+    /* Oro con toque tech */
+    --color-smoke: rgba(0, 0, 0, 0.9);
+    /* Más opaco */
+    --color-tech-neon: #00FFC0;
+    /* Neón brillante (verde cian) */
+    --color-danger-alert: #E74C3C;
+    /* Rojo de alerta moderno */
+    --color-text-light: #E0E0E0;
+    --color-text-dark: #A0A0A0;
+}
+
+body {
+    font-family: 'Tinos', serif;
+    color: var(--color-text-light);
+    margin: 0;
+    padding-top: 80px;
+    /* Más espacio para el Navbar rediseñado */
+    background-color: var(--color-smoke);
+    overflow-x: hidden;
+    perspective: 1000px;
+}
+
+/* ========================== */
+/* NAV BAR (BARRA DE NAVEGACIÓN) - ¡REDESIGNADO! */
+/* ========================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Fondo degradado de centro de control oscuro */
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, var(--color-jungle-dark) 50%, rgba(0, 0, 0, 0.8) 100%);
+    padding: 15px 0;
+    z-index: 50;
+    /* Borde neón simulando un HUD */
+    border-bottom: 3px solid var(--color-tech-neon);
+    box-shadow: 0 0 20px var(--color-tech-neon);
+    /* Sombra neón */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    /* Fuente tech */
+}
+
+.navbar-links a {
+    color: var(--color-tech-neon);
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 0 25px;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 192, 0.2);
+    text-shadow: 0 0 5px rgba(0, 255, 192, 0.5);
+}
+
+.navbar-links a:hover {
+    background-color: rgba(0, 255, 192, 0.15);
+    color: var(--color-gold-tech);
+    /* Efecto de pulso neón */
+    border-color: var(--color-gold-tech);
+    box-shadow: 0 0 15px var(--color-gold-tech);
+    transform: scale(1.05);
+}
+
+/* Pequeña animación de scanline */
+.navbar::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, var(--color-tech-neon), var(--color-tech-neon) 1px, transparent 1px, transparent 10px);
+}
+
+/* -------------------------- */
+/* ESTILOS GENERALES Y SECCIONES (Ajustados a nuevas variables) */
+/* -------------------------- */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    background: linear-gradient(180deg, var(--color-smoke) 0%, transparent 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 5em;
+    color: var(--color-gold-tech);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 5px var(--color-earth-dark);
+    animation: glitch 1.5s infinite;
+    letter-spacing: 5px;
+    transform-style: preserve-3d;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        transform: translate(0);
+    }
+
+    20% {
+        text-shadow: 5px 0 10px rgba(255, 0, 0, 0.7);
+        transform: translate(-3px, 0);
+    }
+
+    40% {
+        text-shadow: -5px 0 10px rgba(0, 0, 255, 0.7);
+        transform: translate(3px, 0);
+    }
+
+    60% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        transform: translate(0);
+    }
+
+    80% {
+        text-shadow: 5px 0 10px rgba(255, 0, 0, 0.7);
+        transform: translate(-1px, 0);
+    }
+
+    100% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        transform: translate(0);
+    }
+}
+
+.tagline {
+    font-size: 1.5em;
+    color: var(--color-text-dark);
+    margin-top: -20px;
+}
+
+section {
+    background-color: rgba(45, 88, 45, 0.1);
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-jungle-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center;
+}
+
+section:hover {
+    transform: scale(1.02) rotateX(2deg);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+h2 {
+    color: var(--color-gold-tech);
+    border-bottom: 3px solid var(--color-jungle-dark);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Efecto de Venta y Instalaciones (Ajustados a nuevas variables) */
+.service-card {
+    background-color: rgba(139, 69, 19, 0.3);
+    border: 2px solid var(--color-earth-dark);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.service-card:hover {
+    transform: translateY(-10px) rotateZ(-1deg);
+    background-color: rgba(139, 69, 19, 0.5);
+}
+
+.service-card h3 {
+    color: var(--color-gold-tech);
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+.installation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.facility-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid var(--color-tech-neon);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.facility-card:hover {
+    box-shadow: 0 0 25px var(--color-tech-neon);
+    transform: scale(1.05);
+}
+
+.facility-card h3 {
+    color: var(--color-tech-neon);
+    font-size: 1.5em;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+    margin-top: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.facility-card p {
+    font-size: 0.9em;
+    color: #C0C0C0;
+}
+
+
+/* ========================== */
+/* FOOTER (SALA DE SERVIDORES / EVACUACIÓN) - ¡REDESIGNADO! */
+/* ========================== */
+footer {
+    background-color: var(--color-smoke);
+    color: var(--color-text-dark);
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 60px;
+    /* Borde superior de alerta/datos */
+    border-top: 5px solid var(--color-danger-alert);
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.9);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    font-family: 'Orbitron', sans-serif;
+    /* Tech */
+}
+
+/* Patrón de rejilla de fondo */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, transparent 90%, rgba(255, 255, 255, 0.05) 90%),
+        linear-gradient(90deg, transparent 90%, rgba(255, 255, 255, 0.05) 90%);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+footer h3 {
+    color: var(--color-tech-neon);
+    margin-top: 0;
+    text-shadow: 0 0 5px var(--color-tech-neon);
+    position: relative;
+    z-index: 2;
+    font-size: 1.5em;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-links {
+    margin-top: 20px;
+}
+
+.footer-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin: 0 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-links a:hover {
+    color: var(--color-danger-alert);
+    border-bottom: 2px solid var(--color-danger-alert);
+    /* Pequeño pulso de terminal */
+    text-shadow: 0 0 10px var(--color-danger-alert);
+}
+
+/* Animación de Alerta de Contención (Más ancho y visible) */
+.alert-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    /* Más ancho */
+    background-color: var(--color-danger-alert);
+    animation: dangerFlash 2s infinite alternate;
+    /* Más rápido y urgente */
+    z-index: 3;
+}
+
+@keyframes dangerFlash {
+    0% {
+        background-color: var(--color-danger-alert);
+        opacity: 0.9;
+    }
+
+    50% {
+        background-color: #FF0000;
+        opacity: 1;
+        box-shadow: 0 0 10px #FF0000;
+    }
+
+    100% {
+        background-color: var(--color-danger-alert);
+        opacity: 0.9;
+    }
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #404040;
+    position: relative;
+    z-index: 2;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--color-gold-tech);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* -------------------------- */
+/* ANIMACIONES DE DINOSAURIOS Y FONDO (Mantenidos) */
+/* -------------------------- */
+.dino-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.dinosaur {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    image-rendering: optimizeSpeed;
+}
+
+#trex {
+    top: 60%;
+    left: -200px;
+    width: 250px;
+    animation: moveTrex 30s linear infinite;
+    transform: scaleX(1);
+}
+
+@keyframes moveTrex {
+    0% {
+        left: -200px;
+        transform: scaleX(1) rotateY(0deg);
+    }
+
+    50% {
+        left: 100%;
+        transform: scaleX(1) rotateY(0deg);
+    }
+
+    50.1% {
+        transform: scaleX(-1) rotateY(180deg);
+    }
+
+    100% {
+        left: -200px;
+        transform: scaleX(-1) rotateY(180deg);
+    }
+}
+
+#raptor {
+    top: 25%;
+    right: 50px;
+    width: 120px;
+    transform-style: preserve-3d;
+    animation: stalkRaptor 10s ease-in-out infinite alternate;
+}
+
+@keyframes stalkRaptor {
+    0% {
+        transform: translateZ(0) rotateY(0deg);
+    }
+
+    100% {
+        transform: translateZ(50px) rotateY(5deg);
+    }
+}
+
+#ptero {
+    top: 5%;
+    right: 10%;
+    width: 180px;
+    animation: flyPtero 20s linear infinite;
+}
+
+@keyframes flyPtero {
+    0% {
+        transform: translateY(0) rotateZ(0deg);
+    }
+
+    25% {
+        transform: translateY(-30px) rotateZ(5deg);
+    }
+
+    50% {
+        transform: translateY(0) rotateZ(0deg);
+    }
+
+    75% {
+        transform: translateY(30px) rotateZ(-5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotateZ(0deg);
+    }
+}
+
+.jungle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Necesitarás una imagen de fondo en /img/jungle_texture.avif */
+    background: url('/img/jungle_texture.avif') repeat;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 1;
+    animation: junglePulse 60s linear infinite;
+    transform: translateZ(-500px) scale(2);
+}
+
+@keyframes junglePulse {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.vibration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.vibration-active {
+    animation: earthquake 0.5s infinite;
+}
+
+@keyframes earthquake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    50% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    75% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -1px) rotate(-1deg);
+    }
+}
