@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinoVentas S.A. - Nuestros Servicios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #2c3e50; /* Azul oscuro */
+            color: #ecf0f1; /* Gris claro */
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8em;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        /* Sección de Servicios */
+        #servicios {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        #servicios h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5em;
+            color: #e74c3c; /* Rojo */
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        #servicios h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #e74c3c;
+            margin: 10px auto 0;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .servicio-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: left;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .servicio-card i { /* Íconos (usaría Font Awesome, pero aquí un placeholder) */
+            font-size: 3em;
+            color: #27ae60; /* Verde */
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .servicio-card h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #34495e; /* Azul grisáceo */
+            font-size: 1.8em;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .servicio-card p {
+            font-size: 1.1em;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #34495e; /* Azul grisáceo */
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DinoVentas S.A.</h1>
+            <p>"Su proveedor de dinosaurios exóticos y más allá."</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="servicios" class="container">
+            <h2>Nuestros Servicios de Vanguardia</h2>
+            <div class="servicios-grid">
+
+                <article class="servicio-card">
+                    <i class="fas fa-tree"></i> <h3>Consultoría de Hábitat Dino</h3>
+                    <p>Diseñamos y optimizamos entornos perfectos para la aclimatación y prosperidad de sus nuevos dinosaurios. Desde la flora adecuada hasta el control climático y la seguridad perimetral.</p>
+                </article>
+
+                <article class="servicio-card">
+                    <i class="fas fa-truck-moving"></i> <h3>Transporte Ultra-Seguro</h3>
+                    <p>Contamos con la flota más avanzada para el transporte de especímenes vivos de cualquier tamaño, garantizando su llegada en óptimas condiciones a cualquier parte del globo.</p>
+                </article>
+
+                <article class="servicio-card">
+                    <i class="fas fa-paw"></i> <h3>Entrenamiento de Manejo</h3>
+                    <p>Nuestro equipo de expertos ofrece cursos intensivos para el manejo, alimentación y cuidado básico de sus dinosaurios. ¡Conviértase en un cuidador certificado!</p>
+                </article>
+
+                <article class="servicio-card">
+                    <i class="fas fa-notes-medical"></i> <h3>Asistencia Veterinaria Dino</h3>
+                    <p>Servicio de atención médica especializada disponible 24/7. Nuestros paleoveterinarios están listos para atender cualquier emergencia o necesidad de salud de sus especímenes.</p>
+                </article>
+
+                <article class="servicio-card">
+                    <i class="fas fa-shield-alt"></i> <h3>Seguro para Especies</h3>
+                    <p>Ofrecemos pólizas de seguro personalizadas para proteger su inversión ante cualquier eventualidad, desde enfermedades inesperadas hasta escapes y daños a la propiedad.</p>
+                </article>
+
+                <article class="servicio-card">
+                    <i class="fas fa-dna"></i> <h3>Clonación y Reproducción</h3>
+                    <p>Laboratorio de bioingeniería avanzada para la reproducción asistida y, bajo estricto control ético, la clonación de especies extintas para su colección privada.</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 DinoVentas S.A. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
